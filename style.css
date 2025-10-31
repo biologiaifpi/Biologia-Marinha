@@ -86,12 +86,14 @@ nav a {
     .topico {
         grid-template-columns: 1fr; /* Muda para 1 coluna */
         gap: 20px;
-    }
-    .topico-img {
-        justify-content: center; /* Centraliza a imagem no modo 1 coluna */
+        /* Como .topico é um grid, o order funciona para reordenar */
     }
     .topico-card {
-        order: 1; /* Coloca o card de texto acima da imagem (opcional) */
+        order: 1; /* Card de Texto aparece em PRIMEIRO (por ter um order baixo) */
+    }
+    .topico-img {
+        order: 2; /* Imagem aparece em SEGUNDO */
+        justify-content: center; /* Centraliza a imagem no modo 1 coluna */
     }
 
     /* Cards de Animais em Extinção (2x2 para 1x1) */
