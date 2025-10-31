@@ -88,14 +88,19 @@ nav a {
     .topico {
         grid-template-columns: 1fr; /* Muda para 1 coluna */
         gap: 20px;
-        /* Como .topico é um grid, o order funciona para reordenar */
     }
     .topico-card {
-        order: 1; /* Card de Texto aparece em PRIMEIRO (por ter um order baixo) */
+        order: 1; /* Card de Texto em PRIMEIRO */
+        padding: 0 10px; /* Garante que o texto tenha um respiro na tela pequena */
     }
     .topico-img {
-        order: 2; /* Imagem aparece em SEGUNDO */
-        justify-content: center; /* Centraliza a imagem no modo 1 coluna */
+        order: 2; /* Imagem em SEGUNDO */
+        padding: 0 10px; /* Garante que o container da imagem tenha respiro */
+    }
+    .topico-img img {
+        width: 100%;
+        height: auto;
+        box-sizing: border-box; /* Previne que bordas/padding causem estouro */
     }
 
     /* Cards de Animais em Extinção (2x2 para 1x1) */
@@ -165,18 +170,25 @@ nav a {
         font-size: 28px;
     }
 
-    /* NOVO AJUSTE: CORRIGE O TRANBORDAMENTO HORIZONTAL NA SEÇÃO AZUL */
-    .causas-consequencias-wrapper .container {
-        padding: 0 10px; /* Reduz o padding lateral do container interno para 10px */
-        max-width: 100%; /* Garante que ele use a largura total permitida */
-        margin-left: auto;
-        margin-right: auto;
+    .container {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        max-width: 100%;
     }
-    
-    /* Garante que o painel use a largura total e não tenha margens que causem o estouro */
+
+    /* CORREÇÃO PARA A SEÇÃO AZUL (CAUSAS E CONSEQUÊNCIAS) */
+    .causas-consequencias-wrapper {
+        padding: 0; /* Remove qualquer padding lateral do wrapper azul */
+        width: 100%;
+    }
+    .causas-consequencias-wrapper .container {
+        padding: 0 10px; /* Container interno tem só 10px de padding */
+    }
     .causas-consequencias-wrapper .split .painel {
         width: 100%;
         margin: 0;
+        /* Se ainda houver vazamento, o problema é a sombra: */
+        box-shadow: none !important; /* Temporariamente remove a sombra para garantir o ajuste */
     }
 }
 
