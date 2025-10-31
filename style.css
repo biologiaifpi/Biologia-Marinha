@@ -80,6 +80,42 @@ nav a {
     padding:0 18px;
 }
 
+/* --- Media Query para Dispositivos Médios e Pequenos (max-width: 880px) --- */
+@media (max-width: 880px) {
+    /* Ajuste do Tópico Principal (Topico Card + Imagem) */
+    .topico {
+        grid-template-columns: 1fr; /* Muda para 1 coluna */
+        gap: 20px;
+    }
+    .topico-img {
+        justify-content: center; /* Centraliza a imagem no modo 1 coluna */
+    }
+    .topico-card {
+        order: 1; /* Coloca o card de texto acima da imagem (opcional) */
+    }
+
+    /* Cards de Animais em Extinção (2x2 para 1x1) */
+    .cards {
+        grid-template-columns: 1fr; /* **Muda para 1 coluna em telas menores** */
+    }
+
+    /* Cards de Como Preservar (3 por linha para 1 por 1) */
+    .cards-ca {
+        flex-direction: column; /* Empilha os cards de ajuda */
+        gap: 12px;
+    }
+
+    /* Causas e Consequências (2 por linha para 1 por 1) */
+    .split {
+        grid-template-columns: 1fr; /* Empilha as causas e consequências */
+    }
+
+    /* Quiz - Centraliza o botão e ajusta o texto */
+    #finishBtn {
+        width: 100%;
+    }
+}
+
 .topico {
     display:grid;
     grid-template-columns:1fr 420px;
