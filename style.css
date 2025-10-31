@@ -163,12 +163,16 @@ nav a {
 
     /* NOVO AJUSTE: CORRIGE O TRANBORDAMENTO HORIZONTAL NA SEÇÃO AZUL */
     .causas-consequencias-wrapper .container {
-        padding: 0 10px; /* Reduz o padding lateral do container interno */
+        padding: 0 10px; /* Reduz o padding lateral do container interno para 10px */
+        max-width: 100%; /* Garante que ele use a largura total permitida */
+        margin-left: auto;
+        margin-right: auto;
     }
     
+    /* Garante que o painel use a largura total e não tenha margens que causem o estouro */
     .causas-consequencias-wrapper .split .painel {
-        margin: 0; /* Remove qualquer margem que possa estar contribuindo */
-        width: 100%; /* Garante que o painel use a largura permitida */
+        width: 100%;
+        margin: 0;
     }
 }
 
