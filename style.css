@@ -102,9 +102,10 @@ nav a {
     .topico {
         /* Remove o Grid e usa Flexbox para forçar o empilhamento vertical */
         display: flex;
-        flex-direction: column; /* Empilha os itens */
+        flex-direction: column; /* Empilha os itens: Card (ordem 1), Imagem (ordem 2) */
         gap: 20px;
         width: 100%;
+        padding: 0 10px; /* Adiciona padding para não colar nas bordas do celular */
     }
     
     .topico-card {
@@ -119,18 +120,25 @@ nav a {
         width: 100%;
         /* Ajusta o alinhamento central */
         justify-content: center;
+        /* Garante que o container da imagem se ajuste ao 100% da tela menor */
+        display: flex; /* Adicionado para centralizar a imagem/card-img */
+        
     }
     
     .card-img {
-        /* Garante que o container da imagem se ajuste ao 100% da tela menor */
+        /* Garante que o card de imagem ocupe a largura total, mas sem extrapolar no celular */
         width: 100%;
-        max-width: 100%; /* Permite que ele cresça até o limite do .topico-img */
+        max-width: 100%; /* Limite máximo */
         height: auto;
+        /* Remove o padding se ele estiver causando problema de largura, 
+           ou garante que o box-sizing esteja ativo */
+        box-sizing: border-box; 
     }
 
     /* Cards de Animais em Extinção (2x2 para 1x1) */
     .cards {
-        grid-template-columns: 1fr; /* **Muda para 1 coluna em telas menores** */
+        grid-template-columns: 1fr 1fr; /* **Mantém 2 colunas até 880px, se necessário ajustamos abaixo** */
+        /* Se quiser 1 coluna antes, mude para: grid-template-columns: 1fr; */
     }
 
     /* Cards de Como Preservar (3 por linha para 1 por 1) */
@@ -148,6 +156,17 @@ nav a {
     /* Quiz - Centraliza o botão e ajusta o texto */
     #finishBtn {
         width: 100%;
+    }
+    /* Video Box */
+    .video-content-grid {
+        flex-direction: column;
+    }
+    .video-container, .video-text-column {
+        width: 100%;
+    }
+    /* Ajuste para que o `card-img` não herde o `max-width: 420px;` e ocupe o espaço */
+    .topico .card-img {
+        max-width: 100%;
     }
 }
 
