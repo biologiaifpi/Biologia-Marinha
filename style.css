@@ -86,21 +86,31 @@ nav a {
 @media (max-width: 880px) {
     /* Ajuste do Tópico Principal (Topico Card + Imagem) */
     .topico {
-        grid-template-columns: 1fr; /* Muda para 1 coluna */
+        display: flex; /* MUDANÇA: Use flex para garantir a ordem */
+        flex-direction: column; /* Coloca os itens em coluna (empilhados) */
         gap: 20px;
+        width: 100%; /* Ocupa 100% da largura do container */
     }
+    
     .topico-card {
         order: 1; /* Card de Texto em PRIMEIRO */
-        padding: 0 10px; /* Garante que o texto tenha um respiro na tela pequena */
+        width: 100%; /* Garante que o Card ocupe toda a largura disponível */
+        padding: 0 10px; /* Adiciona respiro nas laterais (igual ao header) */
+        box-sizing: border-box; 
     }
+    
     .topico-img {
         order: 2; /* Imagem em SEGUNDO */
-        padding: 0 10px; /* Garante que o container da imagem tenha respiro */
+        width: 100%; /* Garante que o container da imagem ocupe toda a largura */
+        padding: 0 10px; /* Adiciona respiro nas laterais (igual ao header) */
+        box-sizing: border-box; 
     }
+    
     .topico-img img {
         width: 100%;
         height: auto;
-        box-sizing: border-box; /* Previne que bordas/padding causem estouro */
+        max-width: 100%;
+        box-sizing: border-box; 
     }
 
     /* Cards de Animais em Extinção (2x2 para 1x1) */
