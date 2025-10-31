@@ -85,25 +85,40 @@ nav a {
 /* --- Media Query para Dispositivos Médios e Pequenos (max-width: 880px) --- */
 @media (max-width: 880px) {
     /* Ajuste do Tópico Principal (Topico Card + Imagem) */
+    .topico-container { 
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    /* Se a sua seção topico estiver DENTRO de um container, use este seletor */
+    .container {
+        padding-left: 10px; /* Padding padrão para a maioria das seções */
+        padding-right: 10px; 
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+
+    /* 2. AJUSTE DO TÓPICO PRINCIPAL: ORDEM E 100% LARGURA */
     .topico {
-        display: flex; /* MUDANÇA: Use flex para garantir a ordem */
-        flex-direction: column; /* Coloca os itens em coluna (empilhados) */
+        display: flex;
+        flex-direction: column; /* Empilha os itens */
         gap: 20px;
-        width: 100%; /* Ocupa 100% da largura do container */
+        width: 100%;
+        /* O container principal não tem padding, então o topico ocupa tudo */
     }
     
     .topico-card {
-        order: 1; /* Card de Texto em PRIMEIRO */
-        width: 100%; /* Garante que o Card ocupe toda a largura disponível */
-        padding: 0 10px; /* Adiciona respiro nas laterais (igual ao header) */
-        box-sizing: border-box; 
+        order: 1; /* Card de Título em CIMA */
+        width: 100%;
+        padding: 0 10px; /* Adiciona o respiro lateral de 10px para alinhar com o header */
+        box-sizing: border-box;
     }
     
     .topico-img {
-        order: 2; /* Imagem em SEGUNDO */
-        width: 100%; /* Garante que o container da imagem ocupe toda a largura */
-        padding: 0 10px; /* Adiciona respiro nas laterais (igual ao header) */
-        box-sizing: border-box; 
+        order: 2; /* Imagem em BAIXO */
+        width: 100%;
+        padding: 0 10px; /* Adiciona o respiro lateral de 10px */
+        box-sizing: border-box;
     }
     
     .topico-img img {
