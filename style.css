@@ -100,32 +100,32 @@ nav a {
 
     /* 2. AJUSTE DO TÓPICO PRINCIPAL: ORDEM E 100% LARGURA */
     .topico {
+        /* Remove o Grid e usa Flexbox para forçar o empilhamento vertical */
         display: flex;
         flex-direction: column; /* Empilha os itens */
         gap: 20px;
         width: 100%;
-        /* O container principal não tem padding, então o topico ocupa tudo */
     }
     
     .topico-card {
         order: 1; /* Card de Título em CIMA */
         width: 100%;
-        padding: 0 10px; /* Adiciona o respiro lateral de 10px para alinhar com o header */
+        padding: 20px; /* Um padding interno confortável */
         box-sizing: border-box;
     }
     
     .topico-img {
         order: 2; /* Imagem em BAIXO */
         width: 100%;
-        padding: 0 10px; /* Adiciona o respiro lateral de 10px */
-        box-sizing: border-box;
+        /* Ajusta o alinhamento central */
+        justify-content: center;
     }
     
-    .topico-img img {
+    .card-img {
+        /* Garante que o container da imagem se ajuste ao 100% da tela menor */
         width: 100%;
+        max-width: 100%; /* Permite que ele cresça até o limite do .topico-img */
         height: auto;
-        max-width: 100%;
-        box-sizing: border-box; 
     }
 
     /* Cards de Animais em Extinção (2x2 para 1x1) */
@@ -263,18 +263,23 @@ nav a {
     display:flex;
     align-items:center;
     justify-content:right;
+    width: 100%; /*mudança*/
 }
 
 .topico-img img {
+    
     border-radius: 10px;
-    height: 180px;
-    width: 331px;
+    height: auto; /*mudança*/
+    padding: 10px;
+    width: 100%; /*mudança*/
+    box-sizing: border-box;
 }
 
 .card-img {
     background: linear-gradient(180deg,rgba(255,255,255,0.85),var(--glass));
-    height: 215px;
-    width: 366px;
+    height: auto;
+    width: 100%;
+    max-width: 420px;
     display: flex;
     justify-content: center;
     align-items: center;
