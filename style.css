@@ -116,6 +116,51 @@ nav a {
     }
 }
 
+/* --- Media Query para Dispositivos Pequenos (max-width: 600px) --- */
+@media (max-width: 600px) {
+    /* Cabeçalho */
+    header {
+        flex-direction: column; /* Empilha o logo e a nav */
+        height: auto; /* Altura automática */
+        padding: 15px 10px;
+        position: static; /* Remove a posição fixa para rolagem */
+        backdrop-filter: none;
+    }
+
+    .logo {
+        margin-left: 0;
+        justify-content: center;
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: 22px;
+        padding-left: 10px;
+    }
+
+    nav {
+        margin-top: 15px;
+        margin-right: 0;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap; /* Permite que os links quebrem a linha */
+        justify-content: center;
+        gap: 8px; /* Espaçamento entre os links */
+    }
+
+    nav a {
+        margin: 0; /* Remove a margem lateral */
+        padding: 6px 10px;
+        font-size: 15px;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.1); /* Um leve fundo para os links */
+    }
+
+    .topico h1 {
+        font-size: 28px;
+    }
+}
+
 .topico {
     display:grid;
     grid-template-columns:1fr 420px;
