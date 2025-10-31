@@ -85,72 +85,53 @@ nav a {
 /* --- Media Query para Dispositivos Médios e Pequenos (max-width: 880px) --- */
 @media (max-width: 880px) {
     /* Ajuste do Tópico Principal (Topico Card + Imagem) */
-    .topico-container { 
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-    /* Se a sua seção topico estiver DENTRO de um container, use este seletor */
     .container {
-        padding-left: 10px; /* Padding padrão para a maioria das seções */
-        padding-right: 10px; 
-        max-width: 100%;
+        padding-left: 10px !important; 
+        padding-right: 10px !important; 
+        max-width: 100% !important;
         box-sizing: border-box;
     }
 
-
-    /* 2. AJUSTE DO TÓPICO PRINCIPAL: ORDEM E 100% LARGURA */
+    /* 1. LAYOUT PRINCIPAL: TÍTULO ACIMA DA IMAGEM */
     .topico {
-        /* Remove o Grid e usa Flexbox para forçar o empilhamento vertical */
-        display: flex;
-        flex-direction: column; /* Empilha os itens: Card (ordem 1), Imagem (ordem 2) */
+        /* SOBRESCREVE o display: grid do desktop APENAS no mobile */
+        display: flex !important;
+        flex-direction: column !important; /* Empilha os itens */
         gap: 20px;
         width: 100%;
-        padding: 0 10px; /* Adiciona padding para não colar nas bordas do celular */
+        padding: 0 10px;
     }
     
     .topico-card {
-        order: 1; /* Card de Título em CIMA */
-        width: 100%;
-        padding: 20px; /* Um padding interno confortável */
-        box-sizing: border-box;
+        order: 1 !important; /* FORÇA O TEXTO A FICAR NA LINHA 1 */
+        width: 100% !important;
+        /* Padding já está no CSS de desktop, não precisa repetir aqui */
     }
     
     .topico-img {
-        order: 2; /* Imagem em BAIXO */
-        width: 100%;
-        /* Ajusta o alinhamento central */
+        order: 2 !important; /* FORÇA A IMAGEM A FICAR NA LINHA 2 */
+        width: 100% !important;
+        display: flex; 
         justify-content: center;
-        /* Garante que o container da imagem se ajuste ao 100% da tela menor */
-        display: flex; /* Adicionado para centralizar a imagem/card-img */
-        
     }
     
     .card-img {
-        /* Garante que o card de imagem ocupe a largura total, mas sem extrapolar no celular */
-        width: 100%;
-        max-width: 100%; /* Limite máximo */
-        height: auto;
-        /* Remove o padding se ele estiver causando problema de largura, 
-           ou garante que o box-sizing esteja ativo */
-        box-sizing: border-box; 
+        /* Garante que o card de imagem ocupe 100% no mobile */
+        max-width: 100% !important; 
+        width: 100% !important;
+        /* Remove o max-width de 420px que existia fora do media query */
     }
 
-    /* Cards de Animais em Extinção (2x2 para 1x1) */
+    /* 2. LAYOUTS DE 1 COLUNA (Para todos os cards no mobile) */
     .cards {
-        grid-template-columns: 1fr; /* **Mantém 2 colunas até 880px, se necessário ajustamos abaixo** */
-        /* Se quiser 1 coluna antes, mude para: grid-template-columns: 1fr; */
+        grid-template-columns: 1fr !important; /* Animais em Extinção (1 coluna) */
     }
-
-    /* Cards de Como Preservar (3 por linha para 1 por 1) */
-    .cards-ca {
-        flex-direction: column; /* Empilha os cards de ajuda */
-        gap: 12px;
-    }
-
-    /* Causas e Consequências (2 por linha para 1 por 1) */
     .split {
-        grid-template-columns: 1fr;
-        gap: 20px; /* Empilha as causas e consequências */
+        grid-template-columns: 1fr !important; /* Causas e Consequências (1 coluna) */
+    }
+    .cards-ca {
+        flex-direction: column !important; /* Como Preservar (1 coluna) */
+        gap: 12px;
     }
 
     /* Quiz - Centraliza o botão e ajusta o texto */
