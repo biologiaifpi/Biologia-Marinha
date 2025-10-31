@@ -20,6 +20,8 @@ html {
 }
 
 body {
+    overflow-x: hidden; /* Garante que o conteúdo que extrapola a largura seja cortado */
+    width: 100%; /* Garante que o corpo ocupe 100% da largura da viewport */
     margin:0;
     background:linear-gradient(180deg,var(--bg),#e6f7fb);
     color:#05343f;
