@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Guardiões do Mar — Extinção dos Animais Marinhos</title>
+  <style>
+    :root{
+      --bg:#f6fcff;
+      --deep:#0b6b8f;
+      --sea:#13a0c8;
+      --accent:#1fb6b6;
+      --card:#ffffff;
+      --muted:#5b6b74;
+      --glass: rgba(255,255,255,0.9);
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#e6f7fb);color:#05343f}
+    header{position:sticky;top:0;background:rgba(11,107,143,0.96);backdrop-filter:saturate(1.1) blur(4px);color:white;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;z-index:10}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:700}
+    .logo .mark{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--sea),var(--accent));display:flex;align-items:center;justify-content:center;font-size:20px;color:white}
+    nav a{color:rgba(255,255,255,0.95);margin-left:18px;text-decoration:none;font-weight:600}
+    .container{max-width:1100px;margin:28px auto;padding:0 18px}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.85),var(--glass));padding:28px;border-radius:14px;box-shadow:0 8px 30px rgba(6,20,30,0.08)}
+    .hero h1{margin:0 0 8px;font-size:34px;color:var(--deep)}
+    .hero p{margin:0 0 18px;color:var(--muted)}
+    .summary{display:flex;gap:10px;flex-wrap:wrap}
+    .summary a{padding:10px 14px;background:white;border-radius:10px;text-decoration:none;color:var(--deep);font-weight:600;box-shadow:0 6px 18px rgba(11,107,143,0.06)}
+
+    /* SVG hero */
+    .hero-art{display:flex;align-items:center;justify-content:center}
+    .hero-art svg{max-width:100%;height:auto;border-radius:12px}
+
+    /* Cards animais */
+    .section{margin-top:26px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:12px}
+    .card{background:var(--card);padding:12px;border-radius:12px;box-shadow:0 10px 26px rgba(10,40,50,0.06)}
+    .card img{width:100%;height:140px;object-fit:cover;border-radius:8px}
+    .card h3{margin:10px 0 4px}
+    .meta{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+
+    /* Causes & Consequences */
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+    .panel{background:var(--card);padding:16px;border-radius:12px}
+
+    /* Quiz */
+    .quiz{margin-top:20px;background:linear-gradient(180deg,#0fa3c5 0%, #1fb6b6 100%);color:white;padding:20px;border-radius:12px}
+    .quiz h3{margin:0 0 8px}
+    .question{background:rgba(255,255,255,0.06);padding:14px;border-radius:10px;margin-top:12px}
+    .options{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+    .opt{padding:10px;border-radius:8px;background:rgba(255,255,255,0.12);cursor:pointer;font-weight:600}
+    .opt.correct{background:rgba(0,180,100,0.95)}
+    .opt.wrong{background:rgba(220,60,60,0.95)}
+
+    /* Team & footer */
+    .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-top:16px}
+    .person{background:var(--card);padding:12px;border-radius:12px;text-align:center}
+    footer{margin-top:36px;padding:18px;text-align:center;color:var(--muted)}
+
+    /* Responsive */
+    @media(max-width:880px){
+      .hero{grid-template-columns:1fr;}
+      header{padding:10px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><div class="mark">🐚</div><div>Guardiões do Mar</div></div>
+    <nav>
+      <a href="#animais">Animais</a>
+      <a href="#causas">Causas</a>
+      <a href="#como-ajudar">Como Ajudar</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#equipe">Equipe</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Extinção dos Animais Marinhos</h1>
+        <p>Um mergulho na consciência azul — causas, consequências e como você pode ajudar a salvar o oceano.</p>
+        <div class="summary">
+          <a href="#causas">Causas da Extinção</a>
+          <a href="#consequencias">Consequências</a>
+          <a href="#como-ajudar">Como Preservar</a>
+          <a href="#quiz">Quiz Salva-Vidas</a>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <!-- Inline SVG hero image: ondas e animais estilizados -->
+        <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#13a0c8"/><stop offset="1" stop-color="#1fb6b6"/></linearGradient>
+          </defs>
+          <rect width="100%" height="100%" rx="12" fill="url(#g)" />
+          <g transform="translate(0,20)" fill="rgba(255,255,255,0.12)">
+            <ellipse cx="80" cy="240" rx="120" ry="30"/>
+            <ellipse cx="420" cy="260" rx="140" ry="32"/>
+          </g>
+
+          <!-- Tartaruga estilizada -->
+          <g transform="translate(60,90) scale(0.9)" fill="#fff">
+            <ellipse cx="90" cy="95" rx="56" ry="28" opacity="0.16"/>
+            <path d="M120 60c-18-12-44-12-62 0-7 4-12 11-14 19-2 8 0 17 6 23 7 6 18 8 28 6 10-2 19-8 28-14 9-6 16-14 18-23 1-8-1-15-4-11z"/>
+          </g>
+
+          <!-- Peixe -->
+          <g transform="translate(330,70) scale(1.1)" fill="#fff" opacity="0.92">
+            <ellipse cx="50" cy="90" rx="40" ry="18"/>
+            <path d="M12 86c6-12 22-26 44-24 0 0 8 0 20 6 12 6 10 18-2 24-12 6-36 14-58 6z"/>
+          </g>
+
+          <!-- Bolhas -->
+          <g fill="#fff" opacity="0.9">
+            <circle cx="480" cy="40" r="4"/>
+            <circle cx="500" cy="60" r="6"/>
+            <circle cx="510" cy="30" r="3"/>
+          </g>
+
+          <text x="28" y="28" fill="white" font-size="18" font-weight="700">Guardiões do Mar</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Animais em destaque -->
+    <section id="animais" class="section">
+      <h2>Animais em Extinção</h2>
+      <div class="cards">
+        <article class="card">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%2313a0c8'/><text x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' font-family='Arial'>Tartaruga-verde</text></svg>" alt="Tartaruga-verde">
+          <h3>Tartaruga-verde <small style="color:var(--muted);font-style:italic;display:block">Chelonia mydas</small></h3>
+          <div class="meta">
+            <div>⏳ 80 anos</div>
+            <div>📏 0.7 - 1.5 m</div>
+            <div>⚖ 80 - 200 kg</div>
+            <div>🌊 Oceanos tropicais</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%231fb6b6'/><text x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' font-family='Arial'>Peixe-boi</text></svg>" alt="Peixe-boi">
+          <h3>Peixe-boi <small style="color:var(--muted);font-style:italic;display:block">Trichechus manatus</small></h3>
+          <div class="meta">
+            <div>⏳ 50 - 60 anos</div>
+            <div>📏 2.5 - 4 m</div>
+            <div>⚖ 400 - 1.000 kg</div>
+            <div>🌿 Costas rasas e estuários</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%230b6b8f'/><text x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' font-family='Arial'>Coral</text></svg>" alt="Coral">
+          <h3>Coral <small style="color:var(--muted);font-style:italic;display:block">(diversas espécies)</small></h3>
+          <div class="meta">
+            <div>⏳ Plurianual</div>
+            <div>📏 estruturas variadas</div>
+            <div>⚖ —</div>
+            <div>🏝 Recifes tropicais</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Causas e Consequências -->
+    <section id="causas" class="section">
+      <h2>Causas e Consequências</h2>
+      <div class="split">
+        <div class="panel">
+          <h3>Principais Causas</h3>
+          <ul>
+            <li>Poluição por plástico e microplásticos</li>
+            <li>Pesca predatória e bycatch (captura acidental)</li>
+            <li>Aquecimento global e branqueamento de corais</li>
+            <li>Perda de habitat e poluição química</li>
+          </ul>
+        </div>
+        <div class="panel" id="consequencias">
+          <h3>Consequências</h3>
+          <ul>
+            <li>Desequilíbrio ecológico e cadeia alimentar afetada</li>
+            <li>Perda de biodiversidade e serviços ecossistêmicos</li>
+            <li>Impactos socioeconômicos em comunidades costeiras</li>
+            <li>Risco aumentado de colapso de recifes e pescas</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Como Ajudar -->
+    <section id="como-ajudar" class="section">
+      <h2>Como Preservar</h2>
+      <div class="cards">
+        <div class="card panel">
+          <h4>Reduza o plástico</h4>
+          <p>Use garrafas reutilizáveis, recuse canudos e descarte resíduos adequadamente.</p>
+        </div>
+        <div class="card panel">
+          <h4>Consumo sustentável</h4>
+          <p>Prefira peixes de captura responsável e verifique selos de pesca sustentável.</p>
+        </div>
+        <div class="card panel">
+          <h4>Apoie ONGs</h4>
+          <p>Compartilhe e doe para instituições que protegem espécies marinhas.</p>
+        </div>
+      </div>
+
+      <p style="margin-top:12px;color:var(--muted)">Links úteis: Projeto Tamar, WWF Brasil, ICMBio, Instituto Baleia Jubarte.</p>
+    </section>
+
+    <!-- Quiz Salva-Vidas -->
+    <section id="quiz" class="section">
+      <h2>Quiz Salva-Vidas</h2>
+      <div class="quiz" role="application">
+        <h3>Teste seus conhecimentos — 3 perguntas rápidas</h3>
+        <div id="quizArea">
+          <!-- Pergunta 1 -->
+          <div class="question" data-index="0">
+            <strong>1) Qual é a principal causa do branqueamento de corais?</strong>
+            <div class="options">
+              <button class="opt">Pesca com redes</button>
+              <button class="opt">Aquecimento da água (Emissão de CO2)</button>
+              <button class="opt">Poluição sonora</button>
+              <button class="opt">Introdução de espécies</button>
+            </div>
+          </div>
+
+          <!-- Pergunta 2 -->
+          <div class="question" data-index="1">
+            <strong>2) Qual item plástico é comumente confundido com água-viva por tartarugas?</strong>
+            <div class="options">
+              <button class="opt">Garrafas PET</button>
+              <button class="opt">Sacos plásticos</button>
+              <button class="opt">Copos descartáveis</button>
+              <button class="opt">Canudos</button>
+            </div>
+          </div>
+
+          <!-- Pergunta 3 -->
+          <div class="question" data-index="2">
+            <strong>3) Qual é o nome científico da Tartaruga-verde?</strong>
+            <div class="options">
+              <button class="opt">Dermochelys coriacea</button>
+              <button class="opt">Chelonia mydas</button>
+              <button class="opt">Caretta caretta</button>
+              <button class="opt">Lepidochelys kempii</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="margin-top:14px;display:flex;gap:12px;align-items:center">
+          <button id="finishBtn" style="padding:10px 14px;border-radius:10px;border:none;font-weight:700;cursor:pointer">Finalizar Quiz</button>
+          <div id="resultText" style="font-weight:700"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Painel da Promessa (opcional físico/digital) -->
+    <section class="section">
+      <h2>Painel da Promessa</h2>
+      <div class="card panel">
+        <p>Escreva sua promessa de guardião marinho:</p>
+        <input id="promiseInput" placeholder="Ex: Vou reduzir o uso de canudos" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6f7fb;margin-top:8px">
+        <button id="addPromise" style="margin-top:10px;padding:10px;border-radius:8px;border:none;background:var(--sea);color:white;font-weight:700;cursor:pointer">Adicionar Promessa</button>
+        <ul id="promisesList" style="margin-top:12px;padding-left:18px;color:var(--muted)"></ul>
+      </div>
+    </section>
+
+    <!-- Equipe e Referências -->
+    <section id="equipe" class="section">
+      <h2>Equipe</h2>
+      <div class="team">
+        <div class="person">
+          <div style="width:100%;height:120px;background:linear-gradient(180deg,#e6fbff,#cff6f9);display:flex;align-items:center;justify-content:center;border-radius:8px">Foto</div>
+          <strong>Ítalo</strong>
+          <div style="color:var(--muted)">Coordenação / Conteúdo</div>
+        </div>
+        <div class="person">
+          <div style="width:100%;height:120px;background:linear-gradient(180deg,#fff7e6,#ffeacc);display:flex;align-items:center;justify-content:center;border-radius:8px">Foto</div>
+          <strong>Nome</strong>
+          <div style="color:var(--muted)">Pesquisa</div>
+        </div>
+        <div class="person">
+          <div style="width:100%;height:120px;background:linear-gradient(180deg,#f7e6ff,#f1dcff);display:flex;align-items:center;justify-content:center;border-radius:8px">Foto</div>
+          <strong>Nome</strong>
+          <div style="color:var(--muted)">Design / Front-end</div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:18px">Referências</h3>
+      <div style="color:var(--muted)">
+        <ul>
+          <li>Projeto Tamar — Informações sobre tartarugas marinhas</li>
+          <li>WWF Brasil — Conservação marinha</li>
+          <li>ICMBio — Listas de espécies e status de conservação</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      Projeto educativo criado para conscientização sobre a extinção dos animais marinhos.
+    </footer>
+  </main>
+
+  <script>
+    // Quiz logic
+    (function(){
+      const answers = [1,1,1];
+      // mapping: question 0 correct index 1 (0-based), q1 correct 1 (sacos), q2 correct 1 (Chelonia mydas)
+      // But our button order: q0 options -> correct is index 1; q1 correct index 1; q2 correct index 1
+      const qEls = document.querySelectorAll('.question');
+      qEls.forEach((q)=>{
+        const opts = q.querySelectorAll('.opt');
+        opts.forEach((btn, i)=>{
+          btn.addEventListener('click', ()=>{
+            // instant feedback
+            opts.forEach(x=>x.disabled=true);
+            const correctIndex = 1; // as designed for each question
+            if(i===correctIndex){
+              btn.classList.add('correct');
+            } else {
+              btn.classList.add('wrong');
+              opts[correctIndex].classList.add('correct');
+            }
+          })
+        })
+      })
+
+      document.getElementById('finishBtn').addEventListener('click', ()=>{
+        let score=0;
+        qEls.forEach((q)=>{
+          const chosen = q.querySelector('.opt.correct');
+          if(chosen) score++;
+        })
+        const res = document.getElementById('resultText');
+        if(score===3){res.textContent='Parabéns! Você é um Guardião Lendário! 100% do oceano salvo!'}
+        else if(score===2){res.textContent='Muito bem! Você é um Defensor do Mar! 70% do oceano salvo!'}
+        else if(score===1){res.textContent='Ainda há muito a aprender! Você é um Aprendiz de Oceano! 30% do oceano salvo!'}
+        else{res.textContent='Tente novamente! Aprender é o primeiro passo.'}
+      })
+
+      // Promessas
+      const addBtn = document.getElementById('addPromise');
+      addBtn.addEventListener('click', ()=>{
+        const ip = document.getElementById('promiseInput');
+        const v = ip.value.trim();
+        if(!v) return;
+        const li = document.createElement('li'); li.textContent=v;
+        document.getElementById('promisesList').appendChild(li);
+        ip.value='';
+      })
+    })();
+  </script>
+</body>
+</html>
