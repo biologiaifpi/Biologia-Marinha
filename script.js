@@ -1,15 +1,54 @@
 // Lógica do Quiz revisada para 6 perguntas
-    (function(){
-      // Armazena o índice (0-based) da opção correta para cada pergunta (6 no total).
-      // Q1: Aquecimento (1) | Q2: Sacos plásticos (1) | Q3: Chelonia mydas (1)
-      // Q4: Fragmentação de plásticos maiores (2) | Q5: Colapso de populações (2) | Q6: Carbono (3)
-      const correctAnswers = [1, 1, 1, 2, 2, 3];
+(function(){
+    // Armazena o índice (0-based) da opção correta para cada pergunta (6 no total).
+    const correctAnswers = [1, 1, 1, 2, 2, 3];
 
-      const qEls = document.querySelectorAll('.question');
-      const totalQuestions = qEls.length; // Agora é 6
-      
-      // Lógica de clique e feedback visual
-      qEls.forEach((q, qIndex) => {
+    const qEls = document.querySelectorAll('.question');
+    const totalQuestions = qEls.length; // Agora é 6
+
+    // --- FUNÇÃO PARA RESETAR O QUIZ E O PAINEL DE PROMESSAS ---
+    function resetQuiz() {
+        // 1. Resetar as Perguntas e Opções
+        qEls.forEach((q) => {
+            q.removeAttribute('data-answered-correctly'); // Remove o status de correto/incorreto
+            
+            const opts = q.querySelectorAll('.opt');
+            opts.forEach(x => {
+                x.disabled = false; // Reabilita todas as opções
+                // Remove todas as classes de feedback visual
+                x.classList.remove('chosen-correct', 'chosen-wrong', 'is-correct');
+            });
+        });
+
+        // 2. Limpar o Placar/Resultado Final
+        const res = document.getElementById('resultText');
+        if (res) {
+            res.textContent = ''; // Limpa o texto de resultado
+        }
+
+        // 3. Limpar o Campo de Promessa e Lista
+        const ip = document.getElementById('promiseInput');
+        if (ip) {
+            ip.value = ''; // Limpa o que foi digitado
+        }
+        
+        // **Atenção:** Se a sua "sugestão" for um elemento que foi removido, 
+        // a lógica de re-adicionar precisará ser implementada aqui. 
+        // Se a sugestão some porque você limpa o input, o reset do input.value já resolve.
+        
+        // Se você não quer que as promessas adicionadas fiquem, você pode limpar a lista:
+        const promisesList = document.getElementById('promisesList');
+        if (promisesList) {
+            promisesList.innerHTML = ''; // Remove todos os <li>'s (as promessas)
+        }
+        
+        // Se a sugestão foi removida do DOM e precisa voltar, 
+        // você precisará do elemento HTML original ou de uma função para recriá-lo.
+    }
+    // --- FIM DA FUNÇÃO DE RESET ---
+
+    // Lógica de clique e feedback visual
+    qEls.forEach((q, qIndex) => {
         const opts = q.querySelectorAll('.opt');
         
         opts.forEach((btn, i) => {
@@ -36,9 +75,10 @@
             }
           });
         });
-      });
+    });
 
-      document.getElementById('finishBtn').addEventListener('click', () => {
+    // Lógica do botão "Finalizar Quiz"
+    document.getElementById('finishBtn').addEventListener('click', () => {
         let score = 0;
         let answeredCount = 0;
         
@@ -72,11 +112,11 @@
         } else { // 0 ou 1 acerto
           res.textContent = `Tente novamente! Você acertou ${score}/${totalQuestions}. Aprender é o primeiro passo. 🌊`;
         }
-      });
+    });
 
-      // Lógica das Promessas
-      const addBtn = document.getElementById('addPromise');
-      addBtn.addEventListener('click', () => {
+    // Lógica das Promessas
+    const addBtn = document.getElementById('addPromise');
+    addBtn.addEventListener('click', () => {
         const ip = document.getElementById('promiseInput');
         const v = ip.value.trim();
         if (!v) return;
@@ -84,5 +124,13 @@
         li.textContent = v;
         document.getElementById('promisesList').appendChild(li);
         ip.value = '';
-      });
-    })();
+    });
+
+    // --- LIGAR A FUNÇÃO DE RESET A UM BOTÃO ---
+    // Você precisa adicionar um elemento com o ID 'resetBtn' no seu HTML
+    const resetBtn = document.getElementById('resetBtn');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', resetQuiz);
+    }
+    
+})();
