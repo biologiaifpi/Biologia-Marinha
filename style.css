@@ -137,7 +137,7 @@ nav a {
 
     /* Cards de Animais em Extinção (2x2 para 1x1) */
     .cards {
-        grid-template-columns: 1fr 1fr; /* **Mantém 2 colunas até 880px, se necessário ajustamos abaixo** */
+        grid-template-columns: 1fr; /* **Mantém 2 colunas até 880px, se necessário ajustamos abaixo** */
         /* Se quiser 1 coluna antes, mude para: grid-template-columns: 1fr; */
     }
 
