@@ -6,7 +6,7 @@
     const qEls = document.querySelectorAll('.question');
     const totalQuestions = qEls.length; // Agora é 6
 
-    // --- FUNÇÃO PARA RESETAR O QUIZ E O PAINEL DE PROMESSAS ---
+    // --- FUNÇÃO PARA RESETAR APENAS O QUIZ ---
     function resetQuiz() {
         // 1. Resetar as Perguntas e Opções
         qEls.forEach((q) => {
@@ -26,24 +26,19 @@
             res.textContent = ''; // Limpa o texto de resultado
         }
 
-        // 3. Limpar o Campo de Promessa e Lista
+        // 3. REMOÇÃO DA LÓGICA DO PAINEL DE PROMESSAS
+        // **Estas linhas foram removidas ou comentadas para preservar o painel:**
+        /*
         const ip = document.getElementById('promiseInput');
         if (ip) {
-            ip.value = ''; // Limpa o que foi digitado
+             ip.value = ''; // Limpa o que foi digitado
         }
         
-        // **Atenção:** Se a sua "sugestão" for um elemento que foi removido, 
-        // a lógica de re-adicionar precisará ser implementada aqui. 
-        // Se a sugestão some porque você limpa o input, o reset do input.value já resolve.
-        
-        // Se você não quer que as promessas adicionadas fiquem, você pode limpar a lista:
         const promisesList = document.getElementById('promisesList');
         if (promisesList) {
-            promisesList.innerHTML = ''; // Remove todos os <li>'s (as promessas)
+             promisesList.innerHTML = ''; // Remove todos os <li>'s (as promessas)
         }
-        
-        // Se a sugestão foi removida do DOM e precisa voltar, 
-        // você precisará do elemento HTML original ou de uma função para recriá-lo.
+        */
     }
     // --- FIM DA FUNÇÃO DE RESET ---
 
@@ -114,7 +109,7 @@
         }
     });
 
-    // Lógica das Promessas
+    // Lógica das Promessas (Não precisa de alteração)
     const addBtn = document.getElementById('addPromise');
     addBtn.addEventListener('click', () => {
         const ip = document.getElementById('promiseInput');
@@ -126,9 +121,12 @@
         ip.value = '';
     });
 
-    // --- LIGAR A FUNÇÃO DE RESET A UM BOTÃO ---
-    // Você precisa adicionar um elemento com o ID 'resetBtn' no seu HTML
-    const resetBtn = document.getElementById('resetBtn');
+    // --- LIGAR A FUNÇÃO DE RESET AO BOTÃO "Refazer Quiz" ---
+    // Assumindo que o botão tem o ID 'resetBtn' conforme o código que você forneceu implicitamente.
+    // Pelo vídeo, parece que é o segundo botão com o texto 'Refazer Quiz'.
+    const resetBtn = document.getElementById('resetBtn'); 
+    // OBS: O HTML no vídeo parece usar um botão 'Refazer Quiz' que deve ter o ID 'resetBtn' ou uma classe,
+    // garantindo que ele chame a função resetQuiz().
     if (resetBtn) {
         resetBtn.addEventListener('click', resetQuiz);
     }
